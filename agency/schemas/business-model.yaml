@@ -1,0 +1,31 @@
+type: object
+description: >
+  Full 12-dimension business model based on Business Model Canvas + Lean Canvas,
+  adapted for website generation. Each dimension maps to specific page decisions,
+  content needs, and site structure recommendations.
+
+sections:
+  - customer_segments
+  - value_propositions
+  - channels
+  - customer_relationships
+  - revenue_streams
+  - key_activities
+  - key_resources
+  - key_partnerships
+  - cost_structure
+  - competitive_advantages
+  - metrics
+  - conversion_architecture
+  - website_implications
+
+validation:
+  minimum_sections: 8
+  required_sections:
+    - customer_segments
+    - value_propositions
+    - revenue_streams
+    - key_activities
+    - competitive_advantages
+    - conversion_architecture
+    - website_implications

@@ -1,0 +1,52 @@
+# Business input template
+# Fill in each field. Remove comments once populated.
+
+# Full legal or trading name of the business.
+business_name:
+
+# The primary goal of the website (e.g. generate leads, sell products, build authority).
+website_goal:
+
+# Industry or sector the business operates in.
+industry:
+
+# Geographic markets the business serves.
+target_markets:
+  -
+
+# Buyer segments or roles the site should address.
+target_segments:
+  -
+
+# Products, services, or solutions the business offers.
+offers:
+  -
+
+# The main action visitors should take on the site.
+primary_cta:
+
+# Desired tone of voice for all site copy (e.g. clear and credible, warm and approachable).
+desired_tone:
+
+# Verbatim quotes from the intake conversation, used as seed material for copy.
+user_language: []
+
+# Direct or indirect competitors for context and differentiation.
+competitors:
+  -
+
+# Competitor profiles discovered through market research (populated by skills/market-research/).
+competitor_analysis: []
+
+# Hard rules or limitations that must be respected in all content.
+constraints:
+  -
+
+# Real buyer language captured from forums, reviews, and discussions (populated by skills/market-research/).
+market_language:
+  buyer_phrases: []
+  common_objections: []
+  decision_factors: []
+  emotional_triggers:
+    frustration: []
+    aspiration: []

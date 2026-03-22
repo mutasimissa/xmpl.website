@@ -1,0 +1,20 @@
+type: object
+description: >
+  Buyer personas with integrated jobs-to-be-done framework. Each persona
+  includes demographic context, functional/social/emotional jobs, pains,
+  gains, objections, and decision criteria. Personas connect directly to
+  the value proposition canvas — each pain maps to a pain reliever, each
+  gain maps to a gain creator.
+
+sections:
+  - personas
+
+validation:
+  minimum_personas: 1
+  per_persona_required:
+    - name
+    - jobs_to_be_done
+    - pains
+    - gains
+    - objections
+    - decision_criteria

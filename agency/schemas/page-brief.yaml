@@ -1,0 +1,41 @@
+type: object
+description: Page-level brief defining audience, objective, CTA, and section structure before copy is written.
+required:
+  - page_name
+  - audience
+  - objective
+  - primary_cta
+  - required_sections
+properties:
+  page_name:
+    type: string
+    description: The page name matching the sitemap entry.
+    example: "Home"
+  audience:
+    type: string
+    description: Who this page is for — specific role and context.
+    example: "Operations and industrial decision-makers evaluating solutions"
+  objective:
+    type: string
+    description: What this page must accomplish — one sentence.
+    example: "Explain what the business does and route qualified visitors to a discovery call"
+  primary_cta:
+    type: string
+    description: The specific action this page drives.
+    example: "Book a discovery call"
+  required_sections:
+    type: array
+    description: Ordered list of content sections for this page.
+    example: ["Hero", "Problem and stakes", "Solutions overview", "Differentiators", "Proof", "CTA"]
+  proof_elements:
+    type: array
+    description: Types of proof to include on this page.
+    example: ["implementation discipline", "industrial understanding"]
+  seo_target:
+    type: string
+    description: Primary keyword or intent this page targets.
+    example: "industrial monitoring solutions"
+  internal_links:
+    type: array
+    description: Pages this page should link to and why.
+    example: ["Solutions → for visitors wanting details", "Contact → for qualified visitors"]

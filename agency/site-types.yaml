@@ -1,0 +1,136 @@
+# Site type profiles — auto-detected during intake to tailor the build pipeline.
+# Each type defines which pages, skills, blueprints, and SEO depth apply.
+
+corporate:
+  description: Multi-page company site with services, about, contact, and blog sections.
+  required_pages:
+    - home
+    - about
+    - contact
+  optional_pages:
+    - services
+    - blog
+    - faq
+    - pricing
+    - case-studies
+    - industries
+    - careers
+    - privacy-policy
+    - terms-of-service
+  skip_skills: []
+  blueprints:
+    - homepage
+    - about-page
+    - service-page
+    - contact-page
+    - blog-index
+    - blog-post
+    - faq-page
+    - pricing-page
+    - case-study
+    - industry-page
+    - market-page
+    - local-landing-page
+  default_conversion: contact-form
+  minimal_seo: false
+  estimated_pages: "8-15"
+
+service:
+  description: Service-oriented site with booking or quote request flows as the primary conversion.
+  required_pages:
+    - home
+    - services
+    - contact
+  optional_pages:
+    - about
+    - faq
+    - pricing
+    - case-studies
+    - blog
+    - testimonials
+    - privacy-policy
+  skip_skills: []
+  blueprints:
+    - homepage
+    - service-page
+    - contact-page
+    - about-page
+    - faq-page
+    - pricing-page
+    - case-study
+    - blog-index
+    - blog-post
+  default_conversion: quote-request
+  minimal_seo: false
+  estimated_pages: "5-10"
+
+personal-blog:
+  description: Author-focused blog with an about page and regularly published posts.
+  required_pages:
+    - home
+    - about
+    - blog
+  optional_pages:
+    - contact
+    - newsletter
+    - projects
+    - privacy-policy
+  skip_skills:
+    - offer-design
+  blueprints:
+    - homepage
+    - about-page
+    - blog-index
+    - blog-post
+  default_conversion: newsletter-signup
+  minimal_seo: false
+  estimated_pages: "3-5"
+
+booking:
+  description: Appointment-driven site focused on getting visitors to book a call or session.
+  required_pages:
+    - home
+  optional_pages:
+    - about
+    - faq
+    - privacy-policy
+  skip_skills:
+    - sitemap-ia
+  blueprints:
+    - homepage
+    - about-page
+    - faq-page
+  default_conversion: booking-link
+  minimal_seo: false
+  estimated_pages: "1-3"
+
+single-page:
+  description: One-page scrolling site with all key sections on a single homepage.
+  required_pages:
+    - home
+  optional_pages:
+    - privacy-policy
+  skip_skills:
+    - sitemap-ia
+  blueprints:
+    - homepage
+  default_conversion: contact-form
+  minimal_seo: false
+  estimated_pages: "1"
+
+coming-soon:
+  description: Placeholder page with email capture to build an audience before launch.
+  required_pages:
+    - home
+  optional_pages: []
+  skip_skills:
+    - offer-design
+    - sitemap-ia
+    - seo-brief
+    - page-copy
+    - launch-qa
+  blueprints:
+    - homepage
+  default_conversion: email-capture
+  minimal_seo: true
+  estimated_pages: "1"

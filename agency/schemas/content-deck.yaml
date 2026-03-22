@@ -1,0 +1,71 @@
+type: object
+description: Structured copy for all website pages, organized by page with section-level detail.
+required:
+  - pages
+properties:
+  pages:
+    type: array
+    description: Array of page objects, each containing section-level copy.
+    items:
+      type: object
+      required:
+        - page
+        - slug
+      properties:
+        page:
+          type: string
+          description: Page name matching the sitemap entry.
+        slug:
+          type: string
+          description: URL path for this page (e.g. /, /solutions, /contact).
+        blueprint:
+          type: string
+          description: Blueprint filename this page follows (e.g. homepage.md, service-page.md).
+        sections:
+          type: array
+          description: Ordered list of content sections on the page.
+          items:
+            type: object
+            required:
+              - type
+            properties:
+              type:
+                type: string
+                description: Section type (hero, features, proof, process, benefits, comparison, faq, cta).
+              headline:
+                type: string
+                description: Section heading text.
+              body:
+                type: string
+                description: Section body copy. May contain markdown.
+              cta:
+                type: object
+                description: Optional call-to-action within this section.
+                properties:
+                  label:
+                    type: string
+                    description: CTA button or link text.
+                  link:
+                    type: string
+                    description: CTA target URL or anchor.
+              proof_elements:
+                type: array
+                description: Supporting evidence for claims in this section (credentials, stats, testimonials, case references).
+                items:
+                  type: string
+        seo:
+          type: object
+          description: SEO metadata for this page.
+          properties:
+            title:
+              type: string
+              description: Title tag content (50-60 characters).
+            description:
+              type: string
+              description: Meta description content (150-160 characters).
+            schema_type:
+              type: string
+              description: Primary JSON-LD schema type (Organization, Service, FAQPage, Article).
+            primary_keyword:
+              type: string
+              description: The primary keyword this page targets.

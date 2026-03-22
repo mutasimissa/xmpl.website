@@ -1,0 +1,12 @@
+{
+  "name": "contenty-tests",
+  "private": true,
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.0.0",
+    "@playwright/test": "^1.49.0",
+    "yaml": "^2.6.0"
+  },
+  "scripts": {
+    "bdd": "cucumber-js --require steps/*.ts --require support/*.ts features/"
+  }
+}

@@ -1,0 +1,613 @@
+type: object
+description: >
+  Foundational business facts that drive all strategy and content decisions.
+  Fields marked (seed) are starting hints — downstream skills produce the
+  canonical versions. Only the three core fields are required; everything
+  else is optional and can be filled interactively via the /start
+  AI workflow. Logo files (assets/brand/logo.svg and logo-icon.svg) are
+  checked at intake time as file existence, not YAML fields.
+
+required:
+  - business_name
+  - website_goal
+  - industry
+
+properties:
+
+  # ── Core (required) ────────────────────────────────────────
+  business_name:
+    type: string
+    description: Legal or trading name of the business.
+    example: "Acme Industrial Systems"
+  website_goal:
+    type: string
+    description: The measurable outcome the website should achieve.
+    example: "Generate qualified inbound inquiries for industrial monitoring solutions"
+  industry:
+    type: string
+    description: The industry or sector the business operates in.
+    example: "Industrial technology and operational visibility"
+  site_type:
+    type: string
+    description: Auto-detected from intake answers. Determines which skills, blueprints, and page sets are activated.
+    enum: [corporate, service, personal-blog, booking, single-page, coming-soon]
+    default: corporate
+
+  # ── Brand seeds ────────────────────────────────────────────
+  brand:
+    type: object
+    description: "(seed) Rough brand direction — refined by skills/brand-strategy/."
+    properties:
+      one_liner:
+        type: string
+        description: One-sentence summary of the business.
+        example: "We make factories visible."
+      mission:
+        type: string
+        description: Why the business exists (purpose).
+        example: "To give plant operators complete real-time visibility over their assets."
+      vision:
+        type: string
+        description: Long-term aspiration.
+        example: "Every industrial facility runs on real-time data."
+      brand_promise:
+        type: string
+        description: The core promise to the customer.
+        example: "You'll know before it breaks."
+      unique_value_proposition:
+        type: string
+        description: What makes this business different, in one sentence.
+        example: "The only monitoring system designed for brownfield plants."
+      differentiation:
+        type: array
+        description: Specific differentiators (reject generic claims).
+        example: ["Brownfield-first design", "Arabic-native support team"]
+      positioning_statement:
+        type: string
+        description: "For [audience], [business] is the [category] that [key benefit]."
+        example: "For plant managers in the GCC, Acme is the monitoring system that works with legacy equipment."
+      brand_personality:
+        type: array
+        description: 3-5 personality traits as adjectives.
+        example: ["Dependable", "Straightforward", "Technically sharp"]
+      brand_keywords:
+        type: array
+        description: Words that should appear frequently in copy.
+        example: ["visibility", "uptime", "reliability", "real-time"]
+      words_to_avoid:
+        type: array
+        description: Words or phrases that must never appear.
+        example: ["cutting-edge", "synergy", "best-in-class"]
+
+  # ── Markets & segments ─────────────────────────────────────
+  target_markets:
+    type: array
+    description: Geographic markets the business serves.
+    example: ["Saudi Arabia", "GCC"]
+  target_segments:
+    type: array
+    description: Specific audience roles or personas the site targets.
+    example: ["Plant managers", "Operations leaders", "Procurement stakeholders"]
+
+  # ── Audience seeds ─────────────────────────────────────────
+  audience:
+    type: object
+    description: "(seed) Audience detail — refined by skills/offer-design/ into personas."
+    properties:
+      primary_personas:
+        type: array
+        description: Main buyer types the site addresses.
+        example: ["Plant manager (40-55, engineering background, budget authority)"]
+      secondary_personas:
+        type: array
+        description: Supporting audience segments.
+        example: ["Procurement officer", "Safety compliance lead"]
+      decision_makers:
+        type: array
+        description: Who signs off on the purchase?
+        example: ["VP Operations", "CFO"]
+      influencers:
+        type: array
+        description: Who influences the decision?
+        example: ["Maintenance technicians", "External consultants"]
+      buyer_journey_stages:
+        type: array
+        description: Stages the buyer goes through before purchasing.
+        example: ["Awareness of downtime cost", "Evaluate monitoring options", "Shortlist vendors", "Request demo"]
+
+  # ── Offers ─────────────────────────────────────────────────
+  offers:
+    type: array
+    description: Core products or services the business sells.
+    example: ["Industrial monitoring systems", "Maintenance visibility dashboards"]
+  offers_detail:
+    type: array
+    description: "(seed) Expanded offer descriptions with pricing context."
+    example:
+      - name: "Asset Monitoring Platform"
+        type: "SaaS"
+        pricing: "Custom-quoted per facility"
+        description: "Real-time sensor data aggregation for legacy and modern equipment"
+
+  # ── CTA ────────────────────────────────────────────────────
+  primary_cta:
+    type: string
+    description: The main action the website should drive visitors to take.
+    example: "Book a discovery call"
+  secondary_ctas:
+    type: array
+    description: Fallback actions for visitors not ready for the primary CTA.
+    example: ["Download the ROI calculator", "Watch the 2-minute demo"]
+
+  # ── Tone & constraints ─────────────────────────────────────
+  desired_tone:
+    type: string
+    description: Brand voice adjectives that guide all copy.
+    example: "Clear, credible, practical"
+  user_language:
+    type: array
+    description: "Verbatim quotes from the user captured during intake conversation. Used as seed material for authentic headlines, taglines, and copy."
+    example: ["I just want a site that doesn't look like a template", "we're fast but not cheap"]
+  competitors:
+    type: array
+    description: Known competitors or alternative solutions.
+    example: ["Legacy automation vendors", "Local system integrators"]
+  constraints:
+    type: array
+    description: Limitations or rules that apply to all content.
+    example: ["Avoid unsupported performance claims", "Keep copy executive-readable"]
+
+  # ── Proof seeds ────────────────────────────────────────────
+  proof:
+    type: object
+    description: "(seed) Evidence and trust signals — used by brand strategy and page copy."
+    properties:
+      testimonials:
+        type: array
+        description: Customer quotes with attribution.
+        example: ["'Uptime improved 34% in 3 months.' — Ahmed K., Plant Manager, SABIC"]
+      case_studies:
+        type: array
+        description: Brief case study summaries.
+        example: ["SABIC Yanbu: 34% uptime improvement, 6-month payback"]
+      clients:
+        type: array
+        description: Notable client names for logo bars and social proof.
+        example: ["SABIC", "Ma'aden", "SEC"]
+      certifications:
+        type: array
+        description: Industry certifications and standards.
+        example: ["ISO 27001", "IEC 62443"]
+      awards:
+        type: array
+        description: Awards or recognitions.
+        example: ["GCC Industrial Innovation Award 2024"]
+      partnerships:
+        type: array
+        description: Strategic partnerships worth mentioning.
+        example: ["Siemens Certified Partner", "AWS Industrial Competency"]
+      stats:
+        type: array
+        description: Quantifiable achievements.
+        example: ["500+ facilities monitored", "99.7% uptime SLA"]
+
+  # ── Messaging seeds ────────────────────────────────────────
+  messaging:
+    type: object
+    description: "(seed) Messaging direction — refined by skills/page-copy/."
+    properties:
+      hero_headline:
+        type: string
+        description: Proposed hero headline.
+        example: "See your factory. All of it. Right now."
+      hero_subheadline:
+        type: string
+        description: Supporting line under the hero headline.
+        example: "Real-time monitoring for legacy and modern industrial assets."
+      key_messages:
+        type: array
+        description: 3-5 core messages the site must communicate.
+        example: ["Visibility prevents downtime", "Works with your existing equipment", "Arabic-native support"]
+      supporting_messages:
+        type: array
+        description: Secondary messages that reinforce the key messages.
+        example: ["Deployed in under 4 weeks", "No rip-and-replace required"]
+      pain_agitation_points:
+        type: array
+        description: Customer pain points to agitate before offering the solution.
+        example: ["Unplanned downtime costs $260K/hour on average", "Legacy equipment has no data visibility"]
+      transformation_outcomes:
+        type: array
+        description: Before → after outcomes the customer experiences.
+        example: ["From reactive maintenance to predictive alerts", "From spreadsheet tracking to live dashboards"]
+      objection_handling:
+        type: array
+        description: Common objections and how to address them.
+        example: ["'Our equipment is too old' → Works with any equipment manufactured after 1990"]
+      call_to_action_variants:
+        type: array
+        description: Alternative CTA phrasings for different contexts.
+        example: ["Book a discovery call", "See it in action", "Get your facility assessment"]
+
+  # ── SEO seeds ──────────────────────────────────────────────
+  seo:
+    type: object
+    description: "(seed) SEO direction — refined by skills/seo-brief/."
+    properties:
+      primary_keywords:
+        type: array
+        description: Main keywords the business wants to rank for.
+        example: ["industrial monitoring system", "factory visibility platform"]
+      secondary_keywords:
+        type: array
+        description: Supporting keywords.
+        example: ["predictive maintenance software", "asset monitoring GCC"]
+      long_tail_keywords:
+        type: array
+        description: Long-tail keyword opportunities.
+        example: ["how to monitor legacy factory equipment", "industrial IoT for brownfield plants"]
+      keyword_mapping:
+        type: object
+        description: Page-to-keyword mapping hints.
+        example: { home: "industrial monitoring system", services: "asset monitoring platform" }
+      search_intent:
+        type: object
+        description: Keywords grouped by search intent.
+        properties:
+          informational:
+            type: array
+            example: ["what is industrial monitoring", "predictive vs preventive maintenance"]
+          commercial:
+            type: array
+            example: ["best industrial monitoring system", "factory monitoring software comparison"]
+          transactional:
+            type: array
+            example: ["industrial monitoring system pricing", "book factory monitoring demo"]
+      geo_targets:
+        type: array
+        description: Geographic modifiers for local SEO.
+        example: ["Saudi Arabia", "Jubail", "Yanbu", "GCC"]
+      topical_authority_clusters:
+        type: array
+        description: Content clusters for topical authority.
+        example: ["Industrial monitoring fundamentals", "Predictive maintenance", "Factory digitization"]
+
+  # ── SEO content seeds ──────────────────────────────────────
+  seo_content:
+    type: object
+    description: "(seed) Content ideas for SEO — used by skills/blog-strategy/ and skills/seo-brief/."
+    properties:
+      faq_questions:
+        type: array
+        description: FAQ questions for FAQ schema and content.
+        example: ["How does industrial monitoring reduce downtime?", "What equipment is compatible?"]
+      glossary_terms:
+        type: array
+        description: Industry terms worth defining for SEO.
+        example: ["SCADA", "OEE", "MTBF", "Condition monitoring"]
+      blog_topics:
+        type: array
+        description: Blog post ideas.
+        example: ["5 signs your plant needs real-time monitoring", "Predictive vs preventive maintenance"]
+      comparison_pages:
+        type: array
+        description: Competitor or category comparison page ideas.
+        example: ["Acme vs legacy SCADA systems", "Cloud monitoring vs on-premise"]
+      landing_pages:
+        type: array
+        description: Campaign or segment-specific landing page ideas.
+        example: ["Oil & gas monitoring", "Food processing compliance"]
+
+  # ── Site map seeds ─────────────────────────────────────────
+  site_map:
+    type: object
+    description: "(seed) Page structure hints — refined by skills/sitemap-ia/."
+    properties:
+      pages:
+        type: array
+        description: Desired pages.
+        example: ["Home", "Platform", "Industries", "About", "Contact", "Blog"]
+      navigation:
+        type: object
+        properties:
+          header:
+            type: array
+            description: Header navigation items.
+            example: ["Platform", "Industries", "About", "Contact"]
+          footer:
+            type: array
+            description: Footer navigation items.
+            example: ["Privacy Policy", "Terms of Service", "Sitemap"]
+      page_priority:
+        type: array
+        description: Pages ranked by business importance.
+        example: ["Home", "Platform", "Contact", "Industries"]
+
+  # ── Page modules ───────────────────────────────────────────
+  page_modules:
+    type: object
+    description: "(seed) Section-level hints for specific pages, keyed by slug."
+    example:
+      home: ["hero", "social-proof", "features", "testimonials", "cta"]
+      platform: ["hero", "feature-grid", "how-it-works", "integrations", "cta"]
+
+  # ── Conversion ─────────────────────────────────────────────
+  conversion:
+    type: object
+    description: "(seed) Conversion mechanics — used by skills/offer-design/ and website-init."
+    properties:
+      primary_conversion_goal:
+        type: string
+        description: What counts as a conversion?
+        example: "Discovery call booked"
+      secondary_conversion_goals:
+        type: array
+        description: Secondary conversion events.
+        example: ["ROI calculator downloaded", "Newsletter signup"]
+      lead_capture_method:
+        type: string
+        description: How leads are captured.
+        example: "Contact form → CRM"
+      sales_model:
+        type: string
+        description: Sales motion type.
+        example: "Consultative / demo-driven"
+      qualification_questions:
+        type: array
+        description: Questions to qualify leads on the website.
+        example: ["Number of facilities?", "Current monitoring system?", "Budget range?"]
+      crm_integration:
+        type: string
+        description: CRM system for lead delivery.
+        example: "HubSpot"
+      booking_link:
+        type: string
+        description: Calendar booking URL.
+        example: "https://calendly.com/acme/discovery"
+      whatsapp_number:
+        type: string
+        description: WhatsApp business number.
+        example: "+966501234567"
+      email:
+        type: string
+        description: Primary contact email.
+        example: "hello@acme-industrial.com"
+      phone:
+        type: string
+        description: Primary phone number.
+        example: "+966112345678"
+      locations:
+        type: array
+        description: Physical office locations.
+        example: ["Riyadh, Saudi Arabia", "Jubail, Saudi Arabia"]
+
+  # ── Design seeds ───────────────────────────────────────────
+  design:
+    type: object
+    description: "(seed) Visual direction — refined by skills/brand-identity/."
+    properties:
+      visual_style:
+        type: string
+        description: Overall visual feel.
+        example: "Clean, minimal, industrial-modern"
+      reference_brands:
+        type: array
+        description: Brands whose visual style you admire.
+        example: ["Siemens", "Figma", "Linear"]
+      color_preferences:
+        type: array
+        description: Color hints or hex codes.
+        example: ["#2d5490", "Deep blue / industrial"]
+      color_avoidance:
+        type: array
+        description: Colors to avoid.
+        example: ["Bright pink", "Neon green"]
+      typography_style:
+        type: string
+        description: Typography direction.
+        example: "Sans-serif, technical, high legibility"
+      imagery_style:
+        type: string
+        description: Photography and illustration style.
+        example: "Real factory photography, no stock photos"
+      icon_style:
+        type: string
+        description: Icon style.
+        example: "Outline / line icons, 24px grid"
+      ui_density:
+        type: string
+        description: Information density preference.
+        example: "Spacious — executive audience, not power users"
+      accessibility_level:
+        type: string
+        description: Target accessibility standard.
+        example: "WCAG 2.1 AA"
+
+  # ── Competitor analysis (populated by skills/market-research/) ──
+  competitor_analysis:
+    type: array
+    description: "Competitor profiles discovered through market research."
+    example:
+      - name: "Competitor A"
+        url: "https://example.com"
+        positioning: "Their hero headline"
+        strengths: ["Fast delivery"]
+        weaknesses: ["No local support"]
+        pricing_model: "Tiered"
+        proof_types: ["Case studies", "Client logos"]
+
+  # ── Market language (populated by skills/market-research/) ────
+  market_language:
+    type: object
+    description: "Real buyer language captured from forums, reviews, and discussions."
+    properties:
+      buyer_phrases:
+        type: array
+        description: "How real buyers describe the problem in their own words."
+        example: ["I just need a simple website that looks professional"]
+      common_objections:
+        type: array
+        description: "Concerns that come up repeatedly."
+        example: ["cheap usually means bad quality"]
+      decision_factors:
+        type: array
+        description: "What buyers say matters when choosing."
+        example: ["portfolio quality vs price"]
+      emotional_triggers:
+        type: object
+        properties:
+          frustration:
+            type: array
+            example: ["wasted money on templates"]
+          aspiration:
+            type: array
+            example: ["look like a legit company"]
+
+  # ── Content rules ──────────────────────────────────────────
+  content_rules:
+    type: object
+    description: Guardrails for all generated content.
+    properties:
+      must_include:
+        type: array
+        description: Elements that must appear in content.
+        example: ["Social proof on every service page", "CTA above the fold"]
+      must_not_include:
+        type: array
+        description: Elements that must never appear.
+        example: ["Competitor bashing", "Unverified statistics"]
+      compliance_notes:
+        type: array
+        description: Regulatory or legal compliance notes.
+        example: ["PDPL (Saudi data protection) compliant forms"]
+      legal_disclaimers:
+        type: array
+        description: Required disclaimers.
+        example: ["Results may vary based on facility conditions"]
+      claims_policy:
+        type: object
+        properties:
+          allow_superlatives:
+            type: boolean
+            description: Can copy use words like 'best', 'fastest', '#1'?
+            example: false
+          allow_guarantees:
+            type: boolean
+            description: Can copy make guarantees?
+            example: false
+          require_evidence_for_claims:
+            type: boolean
+            description: Must every claim be backed by proof?
+            example: true
+
+  # ── Operations ─────────────────────────────────────────────
+  operations:
+    type: object
+    description: Business operational facts for About pages and trust signals.
+    properties:
+      founded_year:
+        type: integer
+        description: Year the business was founded.
+        example: 2018
+      team_size:
+        type: string
+        description: Approximate team size.
+        example: "50-100"
+      service_areas:
+        type: array
+        description: Regions or countries served.
+        example: ["Saudi Arabia", "UAE", "Bahrain", "Kuwait"]
+      delivery_model:
+        type: string
+        description: How services are delivered.
+        example: "On-site installation + remote monitoring SaaS"
+      response_time:
+        type: string
+        description: Typical response time for support.
+        example: "< 4 hours for critical issues"
+      onboarding_process:
+        type: array
+        description: Steps in the customer onboarding process.
+        example: ["Discovery call", "Site survey", "Installation", "Training", "Go-live"]
+      tools_used:
+        type: array
+        description: Key tools or platforms used in delivery.
+        example: ["AWS IoT", "Grafana", "Custom firmware"]
+
+  # ── Localization ───────────────────────────────────────────
+  localization:
+    type: object
+    description: Localization strategy beyond just locale codes.
+    properties:
+      locale_strategy:
+        type: string
+        description: Overall localization approach.
+        example: "Full translation for Arabic, English as primary"
+      transcreation_required:
+        type: boolean
+        description: Does content need cultural adaptation beyond translation?
+        example: true
+      localized_offers:
+        type: array
+        description: Offers that differ by locale.
+        example: ["Arabic-language support (AR only)", "GCC compliance package (AR)"]
+      regional_terms:
+        type: object
+        description: Region-specific terminology mapping.
+        example: { "factory": "مصنع", "monitoring": "مراقبة" }
+      cultural_notes:
+        type: array
+        description: Cultural considerations for content.
+        example: ["Right-to-left layout for Arabic", "Avoid imagery of pork processing facilities"]
+
+  # ── Generation config ──────────────────────────────────────
+  generation:
+    type: object
+    description: Controls for AI content generation behavior.
+    properties:
+      content_depth:
+        type: string
+        description: "Level of detail: brief, standard, comprehensive."
+        example: "standard"
+      reading_level:
+        type: string
+        description: Target reading level.
+        example: "Executive — clear, no jargon overload"
+      copy_style:
+        type: string
+        description: Copywriting style preference.
+        example: "Direct response with B2B credibility"
+      seo_aggressiveness:
+        type: string
+        description: "How keyword-heavy should copy be: light, balanced, aggressive."
+        example: "balanced"
+      conversion_intensity:
+        type: string
+        description: "How pushy should CTAs be: soft, balanced, aggressive."
+        example: "balanced"
+      creativity_level:
+        type: string
+        description: "How creative vs safe: conservative, balanced, bold."
+        example: "balanced"
+      use_storytelling:
+        type: boolean
+        description: Should copy use narrative / story techniques?
+        example: true
+      use_statistics:
+        type: boolean
+        description: Should copy cite numbers and statistics?
+        example: true
+      cite_proof_when_possible:
+        type: boolean
+        description: Should copy reference proof elements whenever relevant?
+        example: true
+
+  # ── i18n ───────────────────────────────────────────────────
+  default_locale:
+    type: string
+    description: Primary language/locale for the website (ISO 639-1 code).
+    example: "en"
+  locales:
+    type: array
+    description: Additional locales if the site is multilingual. Leave empty for single-language sites.
+    example: ["en", "ar", "fr"]

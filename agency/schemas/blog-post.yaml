@@ -1,0 +1,63 @@
+type: object
+description: Blog post frontmatter and metadata requirements.
+required:
+  - title
+  - slug
+  - date
+  - author
+  - locale
+  - description
+  - category
+  - primary_keyword
+properties:
+  title:
+    type: string
+    description: The blog post title, should contain the primary keyword naturally.
+    example: "What Is Operational Visibility and Why Does It Matter?"
+  slug:
+    type: string
+    description: URL-safe slug derived from the title.
+    example: "what-is-operational-visibility"
+  date:
+    type: string
+    description: Publication date in ISO format (YYYY-MM-DD).
+    example: "2025-03-15"
+  author:
+    type: string
+    description: Author name for E-E-A-T signals.
+    example: "Jane Smith"
+  locale:
+    type: string
+    description: ISO 639-1 locale code.
+    example: "en"
+  category:
+    type: string
+    description: Blog category aligned to a service pillar or content theme.
+    example: "insights"
+  primary_keyword:
+    type: string
+    description: The primary SEO keyword this post targets.
+    example: "operational visibility"
+  tags:
+    type: array
+    description: Tags for filtering and related content.
+    example: ["monitoring", "operations", "visibility"]
+  description:
+    type: string
+    description: Meta description (150-160 chars) with primary keyword and value.
+    example: "Learn what operational visibility means and how it transforms industrial monitoring decisions."
+  draft:
+    type: boolean
+    description: Whether the post is in draft mode (not published).
+    example: true
+  og_image:
+    type: string
+    description: Optional post-specific OG image path. Falls back to default if not set.
+    example: "/blog/og-operational-visibility.png"
+  canonical_url:
+    type: string
+    description: Optional canonical URL if this post is syndicated from another source.
+  related_posts:
+    type: array
+    description: Slugs of related posts for cross-linking.
+    example: ["industrial-monitoring-guide", "visibility-vs-analytics"]

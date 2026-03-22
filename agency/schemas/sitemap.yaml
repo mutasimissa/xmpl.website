@@ -1,0 +1,18 @@
+type: object
+description: Site structure defining navigation hierarchy and page-level goals.
+required:
+  - primary_navigation
+  - secondary_pages
+properties:
+  primary_navigation:
+    type: array
+    description: Main pages visible in the navigation bar, ordered by priority.
+    example: ["Home", "Solutions", "Industries", "About", "Contact"]
+  secondary_pages:
+    type: array
+    description: Support pages not in the main nav (FAQ, legal, case studies).
+    example: ["FAQ", "Case Studies", "Privacy Policy"]
+  page_goals:
+    type: object
+    description: One sentence describing each page's job.
+    example: { "Home": "Introduce the business and route qualified interest" }

@@ -1,0 +1,21 @@
+type: object
+description: >
+  Value proposition canvas with customer profile (JTBD, pains, gains),
+  value map (products, pain relievers, gain creators), fit statements,
+  per-segment positioning, and proof matrix. Every claim on the website
+  traces to a row in the proof matrix.
+
+sections:
+  - customer_profile
+  - value_map
+  - fit_statement
+  - per_segment_positioning
+  - proof_matrix
+
+validation:
+  minimum_sections: 3
+  required_sections:
+    - customer_profile
+    - value_map
+    - fit_statement
+    - proof_matrix

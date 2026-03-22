@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "@std/yaml": "jsr:@std/yaml@^1",
+    "@std/fs": "jsr:@std/fs@^1",
+    "@std/path": "jsr:@std/path@^1"
+  },
+  "tasks": {
+    "check": "deno run --allow-read --allow-write --allow-env check.ts",
+    "validate": "deno run --allow-read validate.ts",
+    "audit": "deno run --allow-read audit.ts",
+    "init-website": "deno run --allow-read --allow-write --allow-run --allow-net init-website.ts"
+  }
+}

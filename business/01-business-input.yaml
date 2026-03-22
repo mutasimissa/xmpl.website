@@ -1,0 +1,191 @@
+# Run `/start` in Claude Code to fill this conversationally.
+# Or edit this file manually.
+# Schema: agency/schemas/business-input.yaml
+
+# ── Core (required) ──────────────────────────────────────────
+business_name:
+website_goal:
+industry:
+# Auto-detected during intake. Options: corporate, service, personal-blog, booking, single-page, coming-soon
+site_type:
+
+# ── Brand seeds (refined by skills/brand-strategy/) ──────────
+brand:
+  one_liner:
+  mission:
+  vision:
+  brand_promise:
+  unique_value_proposition:
+  differentiation: []
+  positioning_statement:
+  brand_personality: []
+  brand_keywords: []
+  words_to_avoid: []
+
+# ── Markets & segments ───────────────────────────────────────
+target_markets: []
+target_segments: []
+
+# ── Audience seeds (refined by skills/offer-design/) ─────────
+audience:
+  primary_personas: []
+  secondary_personas: []
+  decision_makers: []
+  influencers: []
+  buyer_journey_stages: []
+
+# ── Offers ───────────────────────────────────────────────────
+offers: []
+offers_detail: []
+# offers_detail example:
+#   - name: "Asset Monitoring Platform"
+#     type: "SaaS"
+#     pricing: "Custom-quoted per facility"
+#     description: "Real-time sensor data aggregation"
+
+# ── CTA ──────────────────────────────────────────────────────
+primary_cta:
+secondary_ctas: []
+
+# ── Tone & constraints ───────────────────────────────────────
+desired_tone:
+user_language: []
+competitors: []
+competitor_analysis: []
+constraints: []
+
+# ── Proof seeds ──────────────────────────────────────────────
+proof:
+  testimonials: []
+  case_studies: []
+  clients: []
+  certifications: []
+  awards: []
+  partnerships: []
+  stats: []
+
+# ── Messaging seeds (refined by skills/page-copy/) ──────────
+messaging:
+  hero_headline:
+  hero_subheadline:
+  key_messages: []
+  supporting_messages: []
+  pain_agitation_points: []
+  transformation_outcomes: []
+  objection_handling: []
+  call_to_action_variants: []
+
+# ── SEO seeds (refined by skills/seo-brief/) ────────────────
+seo:
+  primary_keywords: []
+  secondary_keywords: []
+  long_tail_keywords: []
+  keyword_mapping: {}
+  search_intent:
+    informational: []
+    commercial: []
+    transactional: []
+  geo_targets: []
+  topical_authority_clusters: []
+
+# ── SEO content seeds (used by skills/blog-strategy/) ───────
+seo_content:
+  faq_questions: []
+  glossary_terms: []
+  blog_topics: []
+  comparison_pages: []
+  landing_pages: []
+
+# ── Site map seeds (refined by skills/sitemap-ia/) ──────────
+site_map:
+  pages: []
+  navigation:
+    header: []
+    footer: []
+  page_priority: []
+
+# ── Page modules (section hints per page, keyed by slug) ────
+page_modules: {}
+# example:
+#   home: [hero, social-proof, features, testimonials, cta]
+#   platform: [hero, feature-grid, how-it-works, integrations, cta]
+
+# ── Conversion ───────────────────────────────────────────────
+conversion:
+  primary_conversion_goal:
+  secondary_conversion_goals: []
+  lead_capture_method:
+  sales_model:
+  qualification_questions: []
+  crm_integration:
+  booking_link:
+  whatsapp_number:
+  email:
+  phone:
+  locations: []
+
+# ── Design seeds (refined by skills/brand-identity/) ────────
+design:
+  visual_style:
+  reference_brands: []
+  color_preferences: []
+  color_avoidance: []
+  typography_style:
+  imagery_style:
+  icon_style:
+  ui_density:
+  accessibility_level:
+
+# ── Content rules ────────────────────────────────────────────
+content_rules:
+  must_include: []
+  must_not_include: []
+  compliance_notes: []
+  legal_disclaimers: []
+  claims_policy:
+    allow_superlatives: false
+    allow_guarantees: false
+    require_evidence_for_claims: true
+
+# ── Market research (populated by skills/market-research/) ─────
+market_language:
+  buyer_phrases: []
+  common_objections: []
+  decision_factors: []
+  emotional_triggers:
+    frustration: []
+    aspiration: []
+
+# ── Operations ───────────────────────────────────────────────
+operations:
+  founded_year:
+  team_size:
+  service_areas: []
+  delivery_model:
+  response_time:
+  onboarding_process: []
+  tools_used: []
+
+# ── Localization ─────────────────────────────────────────────
+localization:
+  locale_strategy:
+  transcreation_required: true
+  localized_offers: []
+  regional_terms: {}
+  cultural_notes: []
+
+# ── Generation config ────────────────────────────────────────
+generation:
+  content_depth: standard
+  reading_level:
+  copy_style:
+  seo_aggressiveness: balanced
+  conversion_intensity: balanced
+  creativity_level: balanced
+  use_storytelling: true
+  use_statistics: true
+  cite_proof_when_possible: true
+
+# ── i18n ─────────────────────────────────────────────────────
+default_locale: en
+locales: []

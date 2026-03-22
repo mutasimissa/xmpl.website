@@ -1,0 +1,40 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Deno
+deno.lock
+.deno/
+
+# Fresh
+_fresh/
+
+# Node (if any dependencies pull it in)
+node_modules/
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.*
+
+# Editor
+.vscode/
+.idea/
+
+# Generated archives
+*.zip
+
+# Contenty state
+.contenty-state.json
+
+# Build artifacts
+dist/
+build/
+
+# Test artifacts
+node_modules/
+tests/e2e/playwright-report/
+tests/e2e/test-results/
+tests/e2e/snapshots/

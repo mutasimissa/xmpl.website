@@ -1,0 +1,137 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  yaml-validate:
+    name: YAML & Schema Validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Install workspace dependencies
+        run: deno install
+
+      - name: Check project state
+        id: state
+        run: |
+          # Detect if business files have been populated (not just template)
+          if grep -q '^business_name:$' business/01-business-input.yaml 2>/dev/null; then
+            echo "populated=false" >> $GITHUB_OUTPUT
+            echo "Project is in template state — will run in advisory mode"
+          else
+            echo "populated=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run contenty validate
+        if: steps.state.outputs.populated == 'true'
+        run: deno task validate
+
+      - name: Lint YAML syntax
+        run: |
+          pip install yamllint -q
+          cat <<'YAMLLINT_EOF' > /tmp/.yamllint.yml
+          extends: default
+          rules:
+            line-length:
+              max: 200
+            truthy:
+              check-keys: false
+            document-start: disable
+            comments-indentation: disable
+            empty-values: disable
+          YAMLLINT_EOF
+          yamllint -c /tmp/.yamllint.yml business/
+
+      - name: Validate business schemas
+        if: steps.state.outputs.populated == 'true'
+        run: deno run --allow-read tests/ci/validate-schemas.ts
+
+  markdown-lint:
+    name: Markdown Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Lint markdown
+        run: npx markdownlint-cli2 "business/**/*.md" "agency/**/*.md" "skills/**/*.md" "docs/**/*.md"
+
+  unit-tests:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Install workspace dependencies
+        run: deno install
+
+      - name: Run unit tests
+        run: deno task test:unit
+
+  content-audit:
+    name: Content Audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Install workspace dependencies
+        run: deno install
+
+      - name: Check project state
+        id: state
+        run: |
+          if grep -q '^business_name:$' business/01-business-input.yaml 2>/dev/null; then
+            echo "populated=false" >> $GITHUB_OUTPUT
+            echo "Project is in template state — skipping content audit"
+          else
+            echo "populated=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run content audit
+        if: steps.state.outputs.populated == 'true'
+        run: deno task audit
+
+      - name: Skip notice
+        if: steps.state.outputs.populated == 'false'
+        run: echo "Content audit skipped — business files are empty (template state)"
+
+  drift-check:
+    name: Business/Website Drift
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Install workspace dependencies
+        run: deno install
+
+      - name: Check for drift
+        run: |
+          if [ -f website/deno.json ] || [ -f website/fresh.config.ts ]; then
+            deno run --allow-read tests/ci/drift-check.ts
+          else
+            echo "Website not bootstrapped — skipping drift check"
+          fi

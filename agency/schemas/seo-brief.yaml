@@ -1,0 +1,53 @@
+type: object
+description: SEO strategy mapping keywords, intent, and metadata to pages.
+required:
+  - primary_keywords
+  - intent_clusters
+  - page_mapping
+properties:
+  primary_keywords:
+    type: array
+    description: Primary keywords with their target pages.
+    example: ["industrial monitoring solutions → Home", "operational visibility systems → Solutions"]
+  intent_clusters:
+    type: array
+    description: Keywords grouped by search intent type.
+    example: ["Commercial: industrial monitoring vendor", "Informational: what is operational visibility"]
+  page_mapping:
+    type: object
+    description: Each page mapped to its primary and secondary keywords.
+    example: { "Home": "industrial monitoring solutions", "Solutions": "operational visibility systems" }
+  metadata_notes:
+    type: array
+    description: Title tag and meta description patterns per page.
+    example: ["Home title: Industrial Monitoring Solutions | Business Name"]
+  schema_opportunities:
+    type: array
+    description: Schema markup types to implement and which pages they apply to.
+    example: ["Organization → all pages", "FAQPage → FAQ page", "BreadcrumbList → all pages"]
+  faq_opportunities:
+    type: array
+    description: FAQ questions mapped to target pages.
+    example: ["What is operational visibility? → FAQ, Home"]
+  eeat_signals:
+    type: object
+    description: How to demonstrate Experience, Expertise, Authoritativeness, Trustworthiness.
+  internal_linking_plan:
+    type: array
+    description: Directional links between pages with rationale.
+  canonical_url_pattern:
+    type: string
+    description: URL pattern for canonical tags (e.g. https://DOMAIN/<slug>).
+    example: "https://example.com/<slug>"
+  og_image_strategy:
+    type: object
+    description: Default and per-page OG image strategy.
+    example: { "default": "/og-image.png", "per_page": "none" }
+  structured_data_plan:
+    type: object
+    description: JSON-LD types per page category.
+    example: { "all_pages": ["Organization", "WebSite", "BreadcrumbList"], "service_pages": ["Service"], "faq_sections": ["FAQPage"], "blog_posts": ["Article"] }
+  content_cluster_strategy:
+    type: array
+    description: Pillar pages and their supporting content clusters.
+    example: ["Solutions (pillar) → 3 blog posts on operational visibility"]

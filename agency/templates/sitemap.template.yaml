@@ -1,0 +1,18 @@
+primary_navigation:
+  - Home
+  - Solutions
+  - Industries
+  - About
+  - Contact
+
+secondary_pages:
+  - Case Studies
+  - FAQ
+  - Privacy Policy
+
+page_goals:
+  Home: Introduce the business and route visitors
+  Solutions: Explain the offer set
+  Industries: Reassure fit by segment
+  About: Build trust
+  Contact: Capture qualified leads

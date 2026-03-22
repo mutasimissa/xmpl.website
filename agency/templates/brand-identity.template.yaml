@@ -1,0 +1,80 @@
+brand_philosophy: ""
+
+colors:
+  primary:
+    50: ""
+    100: ""
+    200: ""
+    300: ""
+    400: ""
+    500: ""
+    600: ""
+    700: ""
+    800: ""
+    900: ""
+  accent:
+    50: ""
+    100: ""
+    200: ""
+    300: ""
+    400: ""
+    500: ""
+    600: ""
+    700: ""
+    800: ""
+    900: ""
+  neutral:
+    50: ""
+    100: ""
+    200: ""
+    300: ""
+    400: ""
+    500: ""
+    600: ""
+    700: ""
+    800: ""
+    900: ""
+  semantic:
+    success: ""
+    warning: ""
+    error: ""
+    info: ""
+
+typography:
+  heading_font: ""
+  body_font: ""
+  mono_font: ""
+  base_size: "16px"
+  scale_ratio: 1.25
+  heading_weight: 700
+  body_weight: 400
+
+spacing:
+  base_unit: "4px"
+  scale: [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24]
+
+radii:
+  sm: "4px"
+  md: "8px"
+  lg: "12px"
+  xl: "16px"
+  full: "9999px"
+
+shadows:
+  sm: "0 1px 2px rgba(0,0,0,0.05)"
+  md: "0 4px 6px rgba(0,0,0,0.07)"
+  lg: "0 10px 15px rgba(0,0,0,0.1)"
+  xl: "0 20px 25px rgba(0,0,0,0.1)"
+
+logo:
+  source: "assets/brand/logo.svg"
+  icon_source: "assets/brand/logo-icon.svg"
+  white: "assets/brand/logo-white.svg"
+  black: "assets/brand/logo-black.svg"
+  icon_png: "assets/brand/logo-icon.png"
+  favicon: "assets/brand/favicon.ico"
+  og_image: "assets/brand/og-image.png"
+  apple_touch_icon: "assets/brand/apple-touch-icon.png"
+  min_clear_space: "1x logo height"
+
+rtl_fonts: {}

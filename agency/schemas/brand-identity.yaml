@@ -1,0 +1,173 @@
+type: object
+description: Visual brand identity tokens that drive all website styling, component theming, and design consistency.
+required:
+  - brand_philosophy
+  - colors
+  - typography
+properties:
+  brand_philosophy:
+    type: string
+    description: A short statement describing the brand's visual identity direction, personality, or design ethos. Carried through as a reference for all visual decisions.
+    example: "Clean, minimal, and trustworthy — convey authority without heaviness"
+  colors:
+    type: object
+    description: Color palettes with shades from 50 to 900.
+    required:
+      - primary
+      - accent
+      - neutral
+    properties:
+      primary:
+        type: object
+        description: Primary brand color palette (50–900 shades). Derived from logo or brand_color_hint.
+        example: { "50": "#f0f5fb", "500": "#2d5490", "900": "#0c1a2e" }
+      accent:
+        type: object
+        description: Accent/secondary color palette (50–900 shades). Complements the primary palette.
+        example: { "50": "#f0fbf9", "500": "#10a38d", "900": "#064e3b" }
+      neutral:
+        type: object
+        description: Neutral gray palette (50–900 shades). Used for text, borders, and backgrounds.
+        example: { "50": "#f9fafb", "500": "#6b7280", "900": "#111827" }
+      semantic:
+        type: object
+        description: Semantic colors for UI feedback states.
+        properties:
+          success:
+            type: string
+            example: "#22c55e"
+          warning:
+            type: string
+            example: "#eab308"
+          error:
+            type: string
+            example: "#ef4444"
+          info:
+            type: string
+            example: "#3b82f6"
+  typography:
+    type: object
+    description: Font families, scale, and weight definitions.
+    required:
+      - heading_font
+      - body_font
+    properties:
+      heading_font:
+        type: string
+        description: Font family for headings.
+        example: "Inter"
+      body_font:
+        type: string
+        description: Font family for body text.
+        example: "Inter"
+      mono_font:
+        type: string
+        description: Font family for code and monospaced text.
+        example: "JetBrains Mono"
+      base_size:
+        type: string
+        description: Base font size for the body.
+        example: "16px"
+      scale_ratio:
+        type: number
+        description: Typographic scale ratio (e.g. 1.25 = major third).
+        example: 1.25
+      heading_weight:
+        type: integer
+        description: Font weight for headings.
+        example: 700
+      body_weight:
+        type: integer
+        description: Font weight for body text.
+        example: 400
+  spacing:
+    type: object
+    description: Spacing scale based on a base unit.
+    properties:
+      base_unit:
+        type: string
+        description: The smallest spacing unit.
+        example: "4px"
+      scale:
+        type: array
+        description: Multipliers of the base unit.
+        example: [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24]
+  radii:
+    type: object
+    description: Border radius tokens.
+    properties:
+      sm:
+        type: string
+        example: "4px"
+      md:
+        type: string
+        example: "8px"
+      lg:
+        type: string
+        example: "12px"
+      xl:
+        type: string
+        example: "16px"
+      full:
+        type: string
+        example: "9999px"
+  shadows:
+    type: object
+    description: Elevation/shadow tokens.
+    properties:
+      sm:
+        type: string
+        example: "0 1px 2px rgba(0,0,0,0.05)"
+      md:
+        type: string
+        example: "0 4px 6px rgba(0,0,0,0.07)"
+      lg:
+        type: string
+        example: "0 10px 15px rgba(0,0,0,0.1)"
+      xl:
+        type: string
+        example: "0 20px 25px rgba(0,0,0,0.1)"
+  logo:
+    type: object
+    description: Logo source files (user-provided) and generated variants.
+    properties:
+      source:
+        type: string
+        description: Primary full-color logo (user-provided SVG).
+        example: "assets/brand/logo.svg"
+      icon_source:
+        type: string
+        description: Square icon logo (user-provided SVG).
+        example: "assets/brand/logo-icon.svg"
+      white:
+        type: string
+        description: White-only variant (generated from source).
+        example: "assets/brand/logo-white.svg"
+      black:
+        type: string
+        description: Black-only variant (generated from source).
+        example: "assets/brand/logo-black.svg"
+      icon_png:
+        type: string
+        description: Raster icon export (generated from icon_source).
+        example: "assets/brand/logo-icon.png"
+      favicon:
+        type: string
+        description: Multi-size favicon (generated from icon_source).
+        example: "assets/brand/favicon.ico"
+      og_image:
+        type: string
+        description: Open Graph image (generated composite).
+        example: "assets/brand/og-image.png"
+      apple_touch_icon:
+        type: string
+        description: Apple touch icon (generated from icon_source).
+        example: "assets/brand/apple-touch-icon.png"
+      min_clear_space:
+        type: string
+        description: Minimum clear space around the logo.
+        example: "1x logo height"
+  rtl_fonts:
+    type: object
+    description: Font family overrides for RTL locales. Keys are ISO 639-1 locale codes.
+    example: { "ar": "IBM Plex Sans Arabic", "he": "Noto Sans Hebrew" }

@@ -1,0 +1,23 @@
+type: object
+description: Technical build specification for website implementation.
+required:
+  - stack
+  - content_sources
+  - page_templates
+properties:
+  stack:
+    type: string
+    description: Frontend framework and tooling stack.
+    example: "Fresh 2.2+ / Deno / Tailwind CSS 4 / Vite"
+  content_sources:
+    type: array
+    description: Where page content comes from.
+    example: ["content/04-content-deck.md", "content/02-page-briefs/"]
+  page_templates:
+    type: array
+    description: Reusable page templates or layouts.
+    example: ["default layout", "service page", "landing page"]
+  deployment_notes:
+    type: array
+    description: Hosting, CI/CD, and deployment requirements.
+    example: ["Deploy to Deno Deploy", "HTTPS enforced"]

@@ -1,0 +1,33 @@
+type: object
+description: Brand strategy that informs all website copy, navigation, and messaging.
+required:
+  - audience
+  - positioning
+  - differentiation
+  - tone_of_voice
+  - message_pillars
+properties:
+  audience:
+    type: array
+    description: Specific buyer roles and their context.
+    example: ["Operations leaders needing visibility into asset performance"]
+  positioning:
+    type: string
+    description: One clear statement of who you help, what you do, and why it matters.
+    example: "We help industrial teams improve operational visibility through practical monitoring solutions"
+  differentiation:
+    type: array
+    description: Concrete, provable differentiators (not generic claims).
+    example: ["Implementation-aware approach", "Focus on usable dashboards, not raw complexity"]
+  tone_of_voice:
+    type: array
+    description: 3-5 adjectives a copywriter can immediately use.
+    example: ["clear", "credible", "practical", "direct"]
+  message_pillars:
+    type: array
+    description: Core themes every page should reinforce.
+    example: ["Better visibility reduces costly surprises", "Usable information, not noise"]
+  trust_anchors:
+    type: array
+    description: Types of proof that support the positioning.
+    example: ["operational understanding", "implementation discipline", "practical delivery"]
